@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ s.name_uz }} · BIO-LAB AI{% endblock %}
+{% block content %}
+<h1>{{ s.name_uz }}</h1>
+<p><em>{{ s.name_latin }}</em></p>
+<span class="badge">{{ s.iucn_status }}</span>
+<p>{{ s.description }}</p>
+<table>
+  <tr><th>Sinf</th><td>{{ s.class_name }}</td></tr>
+  <tr><th>Turkum</th><td>{{ s.order_name }}</td></tr>
+  <tr><th>Oila</th><td>{{ s.family }}</td></tr>
+</table>
+<p class="source">Manba: <a href="{{ s.source_url }}" target="_blank" rel="noopener">{{ s.source_name }}</a></p>
+<p><a class="btn" href="{{ url_for('compare', a=s.id) }}">Taqqoslash</a></p>
+{% endblock %}

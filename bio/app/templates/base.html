@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}BIO-LAB AI{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">🧬 BIO-LAB AI</a>
+    <nav><a href="/">Turlar</a><a href="/compare">Taqqoslash</a><a href="/ask">Savol-javob</a></nav>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer>Har bir ma'lumot manbaga bog'langan. Namunaviy ma'lumotlar: IUCN holatini rasmiy saytdan tekshiring.</footer>
+</body>
+</html>

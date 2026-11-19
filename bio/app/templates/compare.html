@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Ikki turni taqqoslash</h1>
+<form method="get" class="row">
+  <select name="a">{% for x in all_sp %}<option value="{{ x.id }}" {% if a and a.id==x.id %}selected{% endif %}>{{ x.name_uz }}</option>{% endfor %}</select>
+  <select name="b">{% for x in all_sp %}<option value="{{ x.id }}" {% if b and b.id==x.id %}selected{% endif %}>{{ x.name_uz }}</option>{% endfor %}</select>
+  <button>Taqqosla</button>
+</form>
+{% if a and b %}
+<div class="scroll"><table>
+  <tr><th></th><th>{{ a.name_uz }}</th><th>{{ b.name_uz }}</th></tr>
+  <tr><th>Ilmiy nom</th><td><em>{{ a.name_latin }}</em></td><td><em>{{ b.name_latin }}</em></td></tr>
+  <tr><th>Sinf</th><td>{{ a.class_name }}</td><td>{{ b.class_name }}</td></tr>
+  <tr><th>Turkum</th><td>{{ a.order_name }}</td><td>{{ b.order_name }}</td></tr>
+  <tr><th>Oila</th><td>{{ a.family }}</td><td>{{ b.family }}</td></tr>
+  <tr><th>Holat</th><td>{{ a.iucn_status }}</td><td>{{ b.iucn_status }}</td></tr>
+  <tr><th>Manba</th><td><a href="{{ a.source_url }}" target="_blank" rel="noopener">{{ a.source_name }}</a></td><td><a href="{{ b.source_url }}" target="_blank" rel="noopener">{{ b.source_name }}</a></td></tr>
+</table></div>
+{% if a.id == b.id %}<p>Bir xil tur tanlandi, boshqasini tanlang.</p>{% endif %}
+{% endif %}
+{% endblock %}

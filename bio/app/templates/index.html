@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hayvonot olami bazasi</h1>
+<form method="get" class="row">
+  <input type="search" name="q" value="{{ q }}" placeholder="Nom yoki lotincha nom...">
+  <button>Qidirish</button>
+</form>
+{% if not species %}<p>Hech narsa topilmadi.</p>{% endif %}
+<div class="grid">
+{% for s in species %}
+  <a class="card" href="{{ url_for('species', sid=s.id) }}">
+    <h3>{{ s.name_uz }}</h3>
+    <em>{{ s.name_latin }}</em>
+    <p>{{ s.family }} · {{ s.class_name }}</p>
+    <span class="badge">{{ s.iucn_status }}</span>
+  </a>
+{% endfor %}
+</div>
+{% endblock %}
